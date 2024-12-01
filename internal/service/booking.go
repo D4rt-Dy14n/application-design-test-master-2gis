@@ -38,6 +38,10 @@ func (s *BookingService) CreateOrder(ctx context.Context, order *model.Order) er
 		return ErrInvalidDateRange
 	}
 
+	if order.ID == "" {
+		order.ID = model.GenerateOrderID()
+	}
+
 	days := getDaysBetween(order.From, order.To)
 
 	// Check availability for all days
