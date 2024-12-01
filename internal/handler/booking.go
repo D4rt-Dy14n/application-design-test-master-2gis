@@ -46,5 +46,17 @@ func (h *BookingHandler) CreateOrder(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(order)
-	log.Println("Order successfully created: %v", order)
+	log.Printf("Order created: \n"+
+		"ID: %s\n"+
+		"Hotel: %s\n"+
+		"Room: %s\n"+
+		"Guest Email: %s\n"+
+		"Check-in: %s\n"+
+		"Check-out: %s\n",
+		order.ID,
+		order.HotelID,
+		order.RoomID,
+		order.UserEmail,
+		order.From.Format("2006-01-02"),
+		order.To.Format("2006-01-02"))
 }
