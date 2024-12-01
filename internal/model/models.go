@@ -20,27 +20,3 @@ type RoomAvailability struct {
 	Date    time.Time `json:"date"`
 	Quota   int       `json:"quota"`
 }
-
-// New function for initial data
-func InitialAvailabilityData() []RoomAvailability {
-	return []RoomAvailability{
-		{
-			HotelID: "reddison",
-			RoomID:  "lux",
-			Date:    time.Date(2024, 1, 2, 0, 0, 0, 0, time.UTC),
-			Quota:   5,
-		},
-		{
-			HotelID: "reddison",
-			RoomID:  "lux",
-			Date:    time.Date(2024, 1, 3, 0, 0, 0, 0, time.UTC),
-			Quota:   5,
-		},
-		{
-			HotelID: "reddison",
-			RoomID:  "lux",
-			Date:    time.Date(2024, 1, 4, 0, 0, 0, 0, time.UTC),
-			Quota:   5,
-		},
-	}
-}

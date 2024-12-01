@@ -7,6 +7,7 @@ import (
 	"applicationDesignTest/internal/testdata"
 	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
@@ -21,5 +22,6 @@ func main() {
 	err := http.ListenAndServe(":8080", mux)
 	if err != nil {
 		log.Fatal("Server failed: ", err)
+		os.Exit(1)
 	}
 }
