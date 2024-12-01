@@ -33,13 +33,17 @@ func getDaysBetween(start, end time.Time) []time.Time {
 	return days
 }
 
+func GenerateOrderID() string {
+	return "order-" + time.Now().Format("20060102150405")
+}
+
 func (s *BookingService) CreateOrder(ctx context.Context, order *model.Order) error {
 	if order.From.After(order.To) {
 		return ErrInvalidDateRange
 	}
 
 	if order.ID == "" {
-		order.ID = model.GenerateOrderID()
+		order.ID = GenerateOrderID()
 	}
 
 	days := getDaysBetween(order.From, order.To)

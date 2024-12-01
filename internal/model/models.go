@@ -20,7 +20,3 @@ type RoomAvailability struct {
 	Date    time.Time `json:"date"`
 	Quota   int       `json:"quota"`
 }
-
-func GenerateOrderID() string {
-	return "order-" + time.Now().Format("20060102150405")
-}
